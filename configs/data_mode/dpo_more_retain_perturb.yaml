@@ -1,0 +1,9 @@
+# This mode collects gt forget data only, and add IDK responses to make it DPO compatible
+
+expand_forget: True
+expand_qanum: 2
+expand_data_path: null
+with_retain: True
+retain_num: 0
+with_perturb: False
+with_dpo: True

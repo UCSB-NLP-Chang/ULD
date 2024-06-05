@@ -1,0 +1,3 @@
+forget_loss: GradAscentLossFunc
+retain_loss: null
+retain_weight: 1.0

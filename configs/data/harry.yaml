@@ -1,0 +1,11 @@
+dataset:
+  class_name: HarryPotter
+  split: None #! no need
+  max_len: 512
+  max_length: 512
+
+conv_template:
+  question_start_token: "### Question: "
+  question_end_token: "\n"
+  answer_token: "### Answer: "
+  max_len: 512

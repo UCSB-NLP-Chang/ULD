@@ -1,0 +1,30 @@
+dataset:
+  class_name: ToFU
+  name: locuslab/TOFU
+  #! for evalaution, this must contain _perturbed suffix to load data
+  split: ???
+  max_length: 250
+
+  # For evaluation 
+  question_key: question
+  answer_key: answer
+  base_answer_key: [paraphrased_answer, answer, answer, paraphrased_answer]
+  perturbed_answer_key: [perturbed_answer, perturbed_answer, perturbed_answer, perturbed_answer]
+
+  perturb_path: data/aug_data/tofu/${.split}/perturb_res.csv
+  paraphrase_path: data/aug_data/tofu/${.split}/paraphrase_res.csv
+
+  eval:
+    batch_size: 4
+    #! change retain ratio according to forget split
+    retain_result: data/retain90_llama_wd0.01/eval_results/ds_size300/eval_log_aggregated.json
+    generation:
+      max_length: 200
+      max_new_tokens: null
+  
+  # dataset: tofu
+conv_template: 
+  question_start_token: "[INST] "
+  question_end_token: " [/INST]"
+  answer_token: ""
+  max_len: 200

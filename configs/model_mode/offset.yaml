@@ -1,0 +1,10 @@
+mode: offset
+base_assist_path: null #! Assistant before training
+new_assist_path: null  #! The path for trained assistant
+weight: 1.0
+Lora:
+  r: 0
+  alpha: 32
+  dropout: 0.05
+  bias: none
+  task_type: CAUSAL_LM

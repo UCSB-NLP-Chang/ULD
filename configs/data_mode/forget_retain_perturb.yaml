@@ -1,0 +1,8 @@
+# This mode collects gt forget data and also gt retain data
+expand_forget: False
+expand_qanum: 2
+expand_data_path: null
+with_retain: True
+retain_num: 400
+with_perturb: True
+with_dpo: False

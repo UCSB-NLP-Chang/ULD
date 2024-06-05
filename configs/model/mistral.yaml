@@ -1,0 +1,3 @@
+model_name: mistral
+model_path: mistralai/Mistral-7B-Instruct-v0.3 #! Need to change to a Mistral fine-tuned on HarryPotter
+tokenizer_path: mistralai/Mistral-7B-Instruct-v0.3

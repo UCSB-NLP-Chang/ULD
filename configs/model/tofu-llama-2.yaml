@@ -1,0 +1,3 @@
+model_name: llama-2
+model_path: locuslab/tofu_ft_llama2-7b
+tokenizer_path: locuslab/tofu_ft_llama2-7b

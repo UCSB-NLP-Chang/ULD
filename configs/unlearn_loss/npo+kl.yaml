@@ -1,0 +1,3 @@
+forget_loss: NPOLossFunc
+retain_loss: KLLossFunc
+retain_weight: 1.0

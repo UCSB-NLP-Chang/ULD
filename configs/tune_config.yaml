@@ -1,0 +1,48 @@
+# @package _global_
+
+defaults:
+  - _self_
+  - data: tofu
+  - data_mode: forget_more_retain_perturb
+  - model: tofu-llama-2
+  # - model_mode: uld
+  - model_mode: full
+  - unlearn_loss: remember+uniform
+
+trainer:
+  batch_size: 8
+  gradient_accumulation_steps: 4
+  max_epochs: 10
+  learning_rate: 2e-5
+  warmup_ratio: 0.1
+  weight_decay: 0.01
+  seed: 42
+  strategy: gpu
+  # strategy: deepspeed
+
+project: debug
+name: null #! Set at runtime
+debug: false
+resume: false
+postfix: ""
+base_logdir: null #! Set at runtime
+seed: 42
+
+save_dir: outputs/model_dir/
+BASELOGDIR: "outputs/tune_log"
+OUTPUTMODELDIR: "outputs_trained_models"
+
+hydra:
+  run:
+    dir: ${BASELOGDIR}/${hydra.job.name}/${hydra.job.override_dirname}/${now:%Y-%m-%d_%H-%M-%S}
+  job:
+    config:
+      override_dirname:
+        exclude_keys: 
+          - save_dir
+          - BASELOGDIR
+          - OUTPUTMODELDIR
+          - data
+          - data.conv_template
+          - trainer.*
+          - model

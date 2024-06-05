@@ -1,0 +1,11 @@
+# This mode collects gt forget data and also gt retain data
+
+expand_forget: True
+expand_qanum: 2
+with_retain: True
+retain_num: 400
+with_perturb: True
+with_dpo: False
+
+# paraphrase_path: data/paraphrase_data/forget01_perturb/paraphrase_res.csv
+# perturb_path: data/paraphrase_data/forget01_perturb/perturb_res.csv

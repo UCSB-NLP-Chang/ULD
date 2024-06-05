@@ -1,0 +1,32 @@
+# @package _global_
+defaults:
+  - _self_
+  - data: tofu
+  - model: tofu-llama-2
+  - model_mode: uld
+
+#! Path to the saved checkpoint
+ckpt_path: ???
+
+#! evaluation realted configs
+OUTDIRNAME: eval_outputs/tofu
+
+hydra:
+  run:
+    dir: ${OUTDIRNAME}/${hydra.job.name}/${hydra.job.override_dirname}/${now:%Y-%m-%d_%H-%M-%S}
+  job:
+    config:
+      override_dirname:
+        exclude_keys:
+          - save_path
+          - data.eval.retain_result
+          - data.eval.batch_size
+          - data
+          - BASEDIR
+          - remember.save_path
+          - model.model_path
+          - OUTDIRNAME
+          - ckpt_path
+  callbacks:
+    save_job_info:
+      _target_: hydra.experimental.callbacks.PickleJobInfoCallback
